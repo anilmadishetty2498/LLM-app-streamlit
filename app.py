@@ -10,6 +10,7 @@ from langchain_community.vectorstores import FAISS                            ##
 from langchain_community.document_loaders import PyPDFDirectoryLoader         
 from langchain_google_genai import GoogleGenerativeAIEmbeddings               #converts chunks into vectors/embeddings
 from dotenv import load_dotenv
+import pandas as pd
 
 #set .env file
 load_dotenv()

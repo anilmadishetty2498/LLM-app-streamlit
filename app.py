@@ -1,6 +1,4 @@
 # Databricks notebook source
-
-
 import streamlit as st
 import os
 from langchain_groq import ChatGroq
@@ -21,7 +19,7 @@ groq_api_key = os.getenv('GROQ_API_KEY')
 os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
 
 #title of the app
-st.title("Gemma Model")
+st.title("Mini-GPT")
 
 #import llm model using groq api key
 llm = ChatGroq(groq_api_key = groq_api_key, model_name = "Gemma-7b-it")
@@ -53,10 +51,10 @@ def vector_embedding():
         st.session_state.vectors = FAISS.from_documents(st.session_state.final_documents,st.session_state.embeddings) #vector OpenAI embeddings
 
 
-prompt1=st.text_input("Enter Your Question From Doduments")
+prompt1=st.text_input("sample test")
 
 
-if st.button("Documents Embedding"):
+if st.button("VectorDB"):
     vector_embedding()
     st.write("Vector Store DB Is Ready")
 
@@ -77,5 +75,3 @@ if prompt1:
         for i, doc in enumerate(response["context"]):
             st.write(doc.page_content)
             st.write("--------------------------------")
-
-#modified code
